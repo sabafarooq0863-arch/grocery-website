@@ -86,8 +86,13 @@ function renderShop(products, categories) {
     ? categories
     : categories?.categories || [];
 
+  const orbitProducts = productList
+    .filter(product => product.image)
+    .slice(0, 8);
+
   appContent.innerHTML = `
     <section class="hero">
+      <div class="hero-layout">
       <div class="hero-content">
         <div class="hero-emoji">🛒</div>
 
@@ -96,6 +101,18 @@ function renderShop(products, categories) {
         <p>
           FreshCart se apni favorite groceries easily shop karein.
         </p>
+      </div>
+
+        <div class="hero-orbit" aria-hidden="true">
+          <div class="orbit-track">
+            ${orbitProducts.map((product, index) => `
+              <div class="orbit-item" style="--orbit-angle: ${index * 45}deg">
+                <span>${product.image}</span>
+              </div>
+            `).join('')}
+          </div>
+          <div class="orbit-center">🛒</div>
+        </div>
       </div>
     </section>
 

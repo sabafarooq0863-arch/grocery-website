@@ -1283,6 +1283,108 @@ textarea.form-input {
   background: rgba(82, 183, 136, 0.1);
 }
 
+/* ── Home Hero Orbit ────────────────────────────────────────── */
+.hero-layout {
+  max-width: 1120px;
+  min-height: 250px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 360px;
+  align-items: center;
+  gap: 32px;
+  text-align: left;
+}
+
+.hero-content {
+  max-width: 620px;
+  margin: 0 0 0 7%;
+}
+
+.hero-content .hero-emoji,
+.hero-content p {
+  text-align: left;
+}
+
+.hero-content p {
+  margin-left: 0;
+}
+
+.hero-orbit {
+  width: 300px;
+  height: 220px;
+  justify-self: center;
+  position: relative;
+  display: grid;
+  place-items: center;
+}
+
+.hero-orbit::before {
+  content: '';
+  position: absolute;
+  width: 190px;
+  height: 190px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 50%;
+  box-shadow: 0 0 32px rgba(255, 255, 255, 0.08);
+}
+
+.orbit-track {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  animation: groceryOrbit 24s linear infinite;
+}
+
+.orbit-item {
+  position: absolute;
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  left: -24px;
+  top: -24px;
+  transform: rotate(var(--orbit-angle)) translateX(95px);
+}
+
+.orbit-item span {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.16);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.16);
+  font-size: 25px;
+  transform: rotate(calc(var(--orbit-angle) * -1));
+}
+
+.orbit-center {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 64px;
+  height: 64px;
+  border: 1px solid rgba(255, 255, 255, 0.34);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.16);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.16);
+  font-size: 30px;
+}
+
+@keyframes groceryOrbit {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .orbit-track,
+  .hero {
+    animation: none;
+  }
+}
+
 /* ── Responsive Design ─────────────────────────────────────── */
 @media (max-width: 1024px) {
   .cart-layout,
@@ -1314,7 +1416,31 @@ textarea.form-input {
   }
 
   .hero {
-    padding: 40px 16px;
+    padding: 40px 16px 32px;
+  }
+
+  .hero-layout {
+    min-height: 0;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    text-align: center;
+  }
+
+  .hero-content {
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .hero-content .hero-emoji,
+  .hero-content p {
+    text-align: center;
+  }
+
+  .hero-orbit {
+    width: 260px;
+    height: 190px;
+    transform: scale(0.88);
+    margin: -8px auto -20px;
   }
 
   .products-grid {
