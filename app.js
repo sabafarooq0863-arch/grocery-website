@@ -8,8 +8,8 @@ import {
   placeOrder
 } from './api.js';
 
-import { renderHeader } from './header.js';
-import { createProductCard } from './productCard.js';
+import { renderHeader } from './components/header.js';
+import { createProductCard } from './components/productCard.js';
 
 const appContent = document.getElementById('app-content');
 
