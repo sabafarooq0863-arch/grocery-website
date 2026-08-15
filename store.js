@@ -4,7 +4,7 @@
 // Manages products, cart, and orders in memory
 // ============================================================
 
-const seedProducts = require('./data/products');
+const seedProducts = require('./products');
 
 // ── State ───────────────────────────────────────────────────
 let products = [...seedProducts];

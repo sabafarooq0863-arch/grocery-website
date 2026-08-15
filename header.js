@@ -4,7 +4,7 @@
 // Sticky glassmorphism header with logo, search, cart badge
 // ============================================================
 
-import { getCart } from '../api.js';
+import { getCart } from './api.js';
 
 let currentCartCount = 0;
 

@@ -4,9 +4,9 @@
 // Renders a single product card with add-to-cart functionality
 // ============================================================
 
-import { addToCart, updateCart, removeFromCart, getCart } from '../api.js';
+import { addToCart, updateCart, removeFromCart, getCart } from './api.js';
 import { updateCartBadge } from './header.js';
-import { showToast } from '../app.js';
+import { showToast } from './app.js';
 
 export function createProductCard(product, cartQuantity = 0) {
   const card = document.createElement('div');
